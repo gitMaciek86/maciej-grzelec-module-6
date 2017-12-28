@@ -2,13 +2,14 @@ package com.kodilla.testing.calculator;
 
 public class Calculator {
 
-    public void someMethod() {
-        System.out.println("it works");
+    private int a, b;
+
+    public int add(int a, int b) {
+        return a + b;
     }
 
-    public static void main(String args[]) {
-        Calculator calculator = new Calculator();
-        calculator.someMethod();
+    public int substract(int a, int b) {
+        return b - a;
     }
 
 }
