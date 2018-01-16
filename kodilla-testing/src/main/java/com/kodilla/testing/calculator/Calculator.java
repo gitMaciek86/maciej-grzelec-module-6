@@ -4,11 +4,11 @@ public class Calculator {
 
     private int a, b;
 
-    public int add(int a, int b) {
+    public static int add(int a, int b) {
         return a + b;
     }
 
-    public int substract(int a, int b) {
+    public static int substract(int a, int b) {
         return b - a;
     }
 
