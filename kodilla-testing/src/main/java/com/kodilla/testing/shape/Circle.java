@@ -16,6 +16,11 @@ public class Circle implements Shape {
     }
 
     @Override
+    public double getField() {
+        return field;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -34,11 +39,6 @@ public class Circle implements Shape {
         temp = Double.doubleToLongBits(field);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
-    }
-
-    @Override
-    public double getField() {
-        return field;
     }
 }
 

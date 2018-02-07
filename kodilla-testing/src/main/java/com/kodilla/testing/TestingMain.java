@@ -1,31 +1,20 @@
 package com.kodilla.testing;
 
-import com.kodilla.testing.user.SimpleUser;
 import com.kodilla.testing.calculator.Calculator;
 
 public class TestingMain {
     public static void main(String[] args) {
-        SimpleUser simpleUser = new SimpleUser("theForumUser");
 
-        String result = simpleUser.getUsername();
-
-        if (result.equals("theForumUser")) {
-            System.out.println("OK");
+        if (Calculator.add(7, 3) == 10) {
+            System.out.println("Add test OK");
         } else {
-            System.out.println("not OK");
+            System.out.println("Add test Error");
         }
 
-        //Testing Class Calculator
-        Calculator calculator = new Calculator();
-        int addResult = calculator.add(2,3);
-        int subResult = calculator.substract(1,3);
-
-        if (addResult == 5 && subResult == 2) {
-            System.out.println("calculator test ok");
+        if (Calculator.sub(15, 35) == 20) {
+            System.out.println("Sub test OK");
         } else {
-            System.out.println("calculator test failure");
+            System.out.println("Sub test Error");
         }
-
     }
 }
-

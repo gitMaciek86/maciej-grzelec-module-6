@@ -8,7 +8,7 @@ public class Calculator {
         return a + b;
     }
 
-    public static int substract(int a, int b) {
+    public static int sub(int a, int b) {
         return b - a;
     }
 

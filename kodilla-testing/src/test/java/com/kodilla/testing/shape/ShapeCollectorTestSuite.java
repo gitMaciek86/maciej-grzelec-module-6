@@ -12,12 +12,12 @@ private static int testCounter = 0;
     public static void endTests() {
         System.out.println("End tests");}
     @Before
-    public static void beforeAlltests() {
+    public void beforeAlltests() {
         testCounter++;
         System.out.println("Next test, no. " + testCounter);}
 
     @Test
-    public void testAddFigure{
+    public void testAddFigure(){
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         Triangle triangle = new Triangle(2,1);
@@ -28,19 +28,19 @@ private static int testCounter = 0;
     }
 
     @Test
-    public void testRemoveFigure{
+    public void testRemoveFigure(){
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         Triangle triangle = new Triangle(2,1);
         //When
         shapeCollector.addFigure(triangle);
-        shapeCollector.removeFigure(triangle);
+        shapeCollector.removeFigure(0);
         //Then
         Assert.assertEquals(0, shapeCollector.getShapesArrayList().size());
     }
 
     @Test
-    public void testShowFigures{
+    public void testShowFigures(){
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         Square square = new Square(1);
@@ -56,7 +56,7 @@ private static int testCounter = 0;
     }
 
     @Test
-    public void testGetFigure{
+    public void testGetFigure(){
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         Circle circle = new Circle(1);
