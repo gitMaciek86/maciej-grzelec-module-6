@@ -6,27 +6,27 @@ import java.util.List;
 public class StatisticsCounter {
 
     Statistics statistics;
-    int numberOfUsers,numberOfPosts, numberOfComments;
-    double avPostsPerUser, avCommentsPerUser, avCommentsPerPost;
+    int numberOfUsers;
+    int numberOfPosts;
+    int numberOfComments;
+    double avPostsPerUser;
+    double avCommentsPerUser;
+    double avCommentsPerPost;
 
     public StatisticsCounter(Statistics statistics) {
-        this.statistics = statistics;
-    }
-
-    public void calculateAdvStatistics(){
-        List<String> listOfUsers = new ArrayList<>();
-
-        for (String users: statistics.usersNames()) {
-            listOfUsers.add(users);
+        if ((statistics.usersNames().size() == 0)
+                || (statistics.postsCount() == 0 && statistics.commentsCount() > 0)) {
+            System.out.println("Forum Data Error. 0 users of Forum, or 0 post and any comments");
+        } else {
+            numberOfUsers = statistics.usersNames().size();
+            numberOfPosts = statistics.postsCount();
+            numberOfComments = statistics.commentsCount();
+            avPostsPerUser = numberOfPosts / numberOfUsers;
+            avCommentsPerUser = numberOfComments / numberOfUsers;
+            if (numberOfPosts>0) {
+                avCommentsPerPost = numberOfComments / numberOfPosts;
+            }
         }
-
-        numberOfUsers = listOfUsers.size();
-        numberOfPosts = statistics.postsCount();
-        numberOfComments = statistics.commentsCount();
-
-        avPostsPerUser = numberOfPosts/numberOfUsers;
-        avCommentsPerUser = numberOfComments/numberOfUsers;
-        avCommentsPerPost = numberOfComments/numberOfPosts;
     }
 
     public void ShowStatistics(){
