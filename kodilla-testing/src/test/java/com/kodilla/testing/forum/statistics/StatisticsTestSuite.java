@@ -22,9 +22,10 @@ public class StatisticsTestSuite {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = generateListOfUsers(1);
-        StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
         when(statisticsMock.usersNames()).thenReturn(userNames);
         when(statisticsMock.postsCount()).thenReturn(0);
+        StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
+        statisticsCounter.calculateAdvStatistics(statisticsMock);
         //When
         int quantityOfPosts = statisticsCounter.getNumberOfPosts();
         //Then
@@ -40,6 +41,7 @@ public class StatisticsTestSuite {
         when(statisticsMock.usersNames()).thenReturn(userNames);
         when(statisticsMock.postsCount()).thenReturn(fakePosts);
         StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
+        statisticsCounter.calculateAdvStatistics(statisticsMock);
         //When
         int quantityOfPosts = statisticsCounter.getNumberOfPosts();
         //Then
@@ -53,6 +55,7 @@ public class StatisticsTestSuite {
         List<String> userNames = generateListOfUsers(1);
         StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
         when(statisticsMock.commentsCount()).thenReturn(0);
+        statisticsCounter.calculateAdvStatistics(statisticsMock);
         //When
         int quantityOfComments = statisticsCounter.getNumberOfComments();
         //Then
@@ -70,6 +73,7 @@ public class StatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(comment);
         when(statisticsMock.postsCount()).thenReturn(post);
         StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
+        statisticsCounter.calculateAdvStatistics(statisticsMock);
         //When
         int quantityOfPosts = statisticsCounter.getNumberOfPosts();
         int quantityOfComments = statisticsCounter.getNumberOfComments();
@@ -86,6 +90,7 @@ public class StatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(100);
         when(statisticsMock.postsCount()).thenReturn(10);
         StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
+        statisticsCounter.calculateAdvStatistics(statisticsMock);
         //When
         int quantityOfPosts = statisticsCounter.getNumberOfPosts();
         int quantityOfComments = statisticsCounter.getNumberOfComments();
@@ -100,6 +105,7 @@ public class StatisticsTestSuite {
         List<String> userNames = generateListOfUsers(100);
         when(statisticsMock.usersNames()).thenReturn(userNames);
         StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
+        statisticsCounter.calculateAdvStatistics(statisticsMock);
         //When
         int quantityOfUsers = statisticsCounter.getNumberOfUsers();
         //Then
@@ -113,6 +119,7 @@ public class StatisticsTestSuite {
         List<String> userNames = generateListOfUsers(0);
         StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
         when(statisticsMock.usersNames()).thenReturn(userNames);
+        statisticsCounter.calculateAdvStatistics(statisticsMock);
         //When
         int quantityOfUsers = statisticsCounter.getNumberOfUsers();
         //Then

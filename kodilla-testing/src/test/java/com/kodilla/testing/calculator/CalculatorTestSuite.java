@@ -19,7 +19,7 @@ public class CalculatorTestSuite {
         //Given == Arrange
         int number = 20;
         //When == Act
-        int subResult = Calculator.sub(25, 5);
+        int subResult = Calculator.sub(5, 25);
         //Then == Assert
         Assert.assertEquals(number, subResult);
     }
