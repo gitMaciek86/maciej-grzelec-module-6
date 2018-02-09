@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
+//git najnowszy
 public class StatisticsTestSuite {
 
     public List<String> generateListOfUsers(int numberOfUsers) {
