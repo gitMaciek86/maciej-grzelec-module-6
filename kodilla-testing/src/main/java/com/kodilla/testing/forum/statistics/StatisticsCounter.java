@@ -1,19 +1,20 @@
 package com.kodilla.testing.forum.statistics;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class StatisticsCounter {
 
     Statistics statistics;
-    int numberOfUsers;
-    int numberOfPosts;
-    int numberOfComments;
-    double avPostsPerUser;
-    double avCommentsPerUser;
-    double avCommentsPerPost;
+    private int numberOfUsers;
+    private int numberOfPosts;
+    private int numberOfComments;
+    private double avPostsPerUser;
+    private double avCommentsPerUser;
+    private double avCommentsPerPost;
 
     public StatisticsCounter(Statistics statistics) {
+        this.statistics = statistics;
+    }
+
+    public void calculateAdvStatistics(Statistics statistics) {
         if ((statistics.usersNames().size() == 0)
                 || (statistics.postsCount() == 0 && statistics.commentsCount() > 0)) {
             System.out.println("Forum Data Error. 0 users of Forum, or 0 post and any comments");
