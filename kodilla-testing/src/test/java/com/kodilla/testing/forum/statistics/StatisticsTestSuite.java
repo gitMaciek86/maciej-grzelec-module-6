@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-//git najnowszy
+
+//10.02.18 15:32
+
 public class StatisticsTestSuite {
 
     public List<String> generateListOfUsers(int numberOfUsers) {
@@ -18,14 +20,14 @@ public class StatisticsTestSuite {
     }
 
     @Test
-    public void TestStatisticsNoPosts(){
+    public void testStatisticsNoPosts(){
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = generateListOfUsers(1);
         when(statisticsMock.usersNames()).thenReturn(userNames);
         when(statisticsMock.postsCount()).thenReturn(0);
         StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
-        statisticsCounter.calculateAdvStatistics(statisticsMock);
+        statisticsCounter.calculateAdvStatistics();
         //When
         int quantityOfPosts = statisticsCounter.getNumberOfPosts();
         //Then
@@ -33,7 +35,7 @@ public class StatisticsTestSuite {
     }
 
     @Test
-    public void TestStatisticsKiloPosts(){
+    public void testStatisticsKiloPosts(){
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = generateListOfUsers(1);
@@ -41,7 +43,7 @@ public class StatisticsTestSuite {
         when(statisticsMock.usersNames()).thenReturn(userNames);
         when(statisticsMock.postsCount()).thenReturn(fakePosts);
         StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
-        statisticsCounter.calculateAdvStatistics(statisticsMock);
+        statisticsCounter.calculateAdvStatistics();
         //When
         int quantityOfPosts = statisticsCounter.getNumberOfPosts();
         //Then
@@ -49,13 +51,13 @@ public class StatisticsTestSuite {
     }
 
     @Test
-    public void TestStatisticsNoComments(){
+    public void testStatisticsNoComments(){
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = generateListOfUsers(1);
         StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
         when(statisticsMock.commentsCount()).thenReturn(0);
-        statisticsCounter.calculateAdvStatistics(statisticsMock);
+        statisticsCounter.calculateAdvStatistics();
         //When
         int quantityOfComments = statisticsCounter.getNumberOfComments();
         //Then
@@ -63,7 +65,7 @@ public class StatisticsTestSuite {
     }
 
     @Test
-    public void TestStatisticsMorePostsThanComments(){
+    public void testStatisticsMorePostsThanComments(){
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = generateListOfUsers(1);
@@ -73,7 +75,7 @@ public class StatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(comment);
         when(statisticsMock.postsCount()).thenReturn(post);
         StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
-        statisticsCounter.calculateAdvStatistics(statisticsMock);
+        statisticsCounter.calculateAdvStatistics();
         //When
         int quantityOfPosts = statisticsCounter.getNumberOfPosts();
         int quantityOfComments = statisticsCounter.getNumberOfComments();
@@ -82,7 +84,7 @@ public class StatisticsTestSuite {
     }
 
     @Test
-    public void TestStatisticsMoreCommentsThanPosts(){
+    public void testStatisticsMoreCommentsThanPosts(){
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = generateListOfUsers(1);
@@ -90,7 +92,7 @@ public class StatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(100);
         when(statisticsMock.postsCount()).thenReturn(10);
         StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
-        statisticsCounter.calculateAdvStatistics(statisticsMock);
+        statisticsCounter.calculateAdvStatistics();
         //When
         int quantityOfPosts = statisticsCounter.getNumberOfPosts();
         int quantityOfComments = statisticsCounter.getNumberOfComments();
@@ -99,13 +101,13 @@ public class StatisticsTestSuite {
     }
 
     @Test
-    public void TestStatisticsUsers(){
+    public void testStatisticsUsers(){
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = generateListOfUsers(100);
         when(statisticsMock.usersNames()).thenReturn(userNames);
         StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
-        statisticsCounter.calculateAdvStatistics(statisticsMock);
+        statisticsCounter.calculateAdvStatistics();
         //When
         int quantityOfUsers = statisticsCounter.getNumberOfUsers();
         //Then
@@ -113,13 +115,13 @@ public class StatisticsTestSuite {
     }
 
     @Test
-    public void TestStatisticsNoUsers(){
+    public void testStatisticsNoUsers(){
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = generateListOfUsers(0);
         StatisticsCounter statisticsCounter = new StatisticsCounter(statisticsMock);
         when(statisticsMock.usersNames()).thenReturn(userNames);
-        statisticsCounter.calculateAdvStatistics(statisticsMock);
+        statisticsCounter.calculateAdvStatistics();
         //When
         int quantityOfUsers = statisticsCounter.getNumberOfUsers();
         //Then

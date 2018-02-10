@@ -14,7 +14,7 @@ public class StatisticsCounter {
         this.statistics = statistics;
     }
 
-    public void calculateAdvStatistics(Statistics statistics) {
+    public void calculateAdvStatistics() {
         if ((statistics.usersNames().size() == 0)
                 || (statistics.postsCount() == 0 && statistics.commentsCount() > 0)) {
             System.out.println("Forum Data Error. 0 users of Forum, or 0 post and any comments");
