@@ -30,7 +30,7 @@ public class StatisticsCounter {
         }
     }
 
-    public void ShowStatistics(){
+    public void showStatistics(){
         System.out.println("avPostsPerUser: " + avPostsPerUser + ", avCommentsPerUser: " + avCommentsPerUser + ", avCommentsPerPost: " + avCommentsPerPost);
     }
 
