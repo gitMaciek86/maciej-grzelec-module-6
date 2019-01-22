@@ -1,4 +1,4 @@
-package com.kodilla.spring.Forum;
+package com.kodilla.spring.forum;
 
 import org.junit.Assert;
 import org.junit.Test;
